@@ -13,11 +13,11 @@ public class Main {
 		ufba.insereCurso(SI);
 		ufba.insereCurso(LC);
 		
-		Disciplina engenhariaDeSoftwareII = new Disciplina("MATA63", "Engenharia de Software II", 68);
+		Disciplina engenhariaDeSoftware = new Disciplina("MATA63", "Engenharia de Software", 68);
 		
-		CC.insereComponenteObrigatorio(new ComponenteCurricularObrigatorio(engenhariaDeSoftwareII, 6));
-		SI.insereComponenteObrigatorio(new ComponenteCurricularObrigatorio(engenhariaDeSoftwareII, 5));
-		LC.insereComponenteOptativo(new ComponenteCurricularOptativo(engenhariaDeSoftwareII));
+		CC.insereComponenteObrigatorio(new ComponenteCurricularObrigatorio(engenhariaDeSoftware, 6));
+		SI.insereComponenteObrigatorio(new ComponenteCurricularObrigatorio(engenhariaDeSoftware, 5));
+		LC.insereComponenteOptativo(new ComponenteCurricularOptativo(engenhariaDeSoftware));
 		
 		
 		for(Curso curso : ufba.getCursos()) {
