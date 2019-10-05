@@ -1,14 +1,16 @@
 package br.ufba.mata62.sistemaacademico;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ComponenteCurricular {
-	Disciplina disciplina;
-	ArrayList<Disciplina> preRequisitos;
+	protected Disciplina disciplina;
+	protected Set<Disciplina> preRequisitos;
 	
 	public ComponenteCurricular(Disciplina disciplina) {
 		this.disciplina = disciplina;
-		preRequisitos = new ArrayList<Disciplina>();
+		preRequisitos = new HashSet<Disciplina>();
 	}
 
 	public Disciplina getDisciplina() {
@@ -19,14 +21,10 @@ public class ComponenteCurricular {
 		this.disciplina = disciplina;
 	}
 
-	public ArrayList<Disciplina> getPreRequisitos() {
-		return preRequisitos;
+	public Set<Disciplina> getPreRequisitos() {
+		return Collections.unmodifiableSet(preRequisitos);
 	}
 
-	public void setPreRequisitos(ArrayList<Disciplina> preRequisitos) {
-		this.preRequisitos = preRequisitos;
-	}
-	
 	public void inserePreRequisito(Disciplina disciplina){
 		preRequisitos.add(disciplina); 
 	}

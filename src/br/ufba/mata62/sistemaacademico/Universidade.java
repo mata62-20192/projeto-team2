@@ -1,18 +1,22 @@
 package br.ufba.mata62.sistemaacademico;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.List;
 
 public class Universidade {
 	private String nome;
 	private String sigla;
-	private ArrayList<Curso> cursos;
-	private ArrayList<Disciplina> disciplinas;
+	private List<Curso> cursos;
+	private Set<Disciplina> disciplinas;
 
 	public Universidade(String nome, String sigla) {
 		this.nome = nome;
 		this.sigla = sigla;
 		cursos = new ArrayList<Curso>();
-		disciplinas = new ArrayList<Disciplina>();
+		disciplinas = new HashSet<Disciplina>();
 	}
 
 	public String getNome() {
@@ -31,20 +35,12 @@ public class Universidade {
 		this.sigla = sigla;
 	}
 
-	public ArrayList<Curso> getCursos() {
-		return cursos;
+	public List<Curso> getCursos() {
+		return Collections.unmodifiableList(cursos);
 	}
 
-	public void setCursos(ArrayList<Curso> cursos) {
-		this.cursos = cursos;
-	}
-
-	public ArrayList<Disciplina> getDisciplinas() {
-		return disciplinas;
-	}
-
-	public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
+	public Set<Disciplina> getDisciplinas() {
+		return Collections.unmodifiableSet(disciplinas);
 	}
 	
 	public void insereCurso(Curso curso){
