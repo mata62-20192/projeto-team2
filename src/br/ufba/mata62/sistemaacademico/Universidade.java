@@ -11,6 +11,7 @@ public class Universidade {
 	private String sigla;
 	private List<Curso> cursos;
 	private Set<Disciplina> disciplinas;
+	private Set<Aluno> alunos;
 
 	public Universidade(String nome, String sigla) {
 		this.nome = nome;
@@ -49,5 +50,13 @@ public class Universidade {
 	
 	public void insereDisciplina(Disciplina disciplina) {
 		disciplinas.add(disciplina);
+	}
+
+	public Set<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void insereAluno(Aluno aluno) {
+		alunos.add(aluno);
 	}
 }
