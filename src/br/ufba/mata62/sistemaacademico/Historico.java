@@ -1,42 +1,38 @@
 package br.ufba.mata62.sistemaacademico;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Historico {
+	private List<PeriodoCursado> periodosCursados;
 	
-	private Aluno aluno;
-	private PeriodoCursado periodo;
-	public Historico(Aluno aluno) {
-		super();
-		this.aluno = aluno;
+	public Historico() {
+		periodosCursados = new ArrayList<PeriodoCursado>();
+	}
+
+	public List<PeriodoCursado> getPeriodosCursados() {
+		return Collections.unmodifiableList(periodosCursados);
+	}
+	
+	public void inserePeriodoCursado(PeriodoCursado p) {
+		periodosCursados.add(p);
 	}
 	
 	private void imprimirTXT() {
 		
 	}
+	
 	private void imprimirHTML() {
 		
 	}
-	private Integer calcularCargaHorariaOptativa() {
-		
-	}
-	private Integer calcularCargaHorariaObrigatoria() {
-		
-	}
-	private Double calcularCoeficienteRendimento() {
-		
+
+	private int calcularCargaHorariaTotal() {
+		return 1;
 	}
 	
-	public Aluno getAluno() {
-		return aluno;
-	}
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
-
-	public PeriodoCursado getPeriodo() {
-		return periodo;
-	}
-
-	public void setPeriodo(PeriodoCursado periodo) {
-		this.periodo = periodo;
+	private Double calcularCoeficienteRendimento() {
+		//TODO
+		return null;
 	}
 }

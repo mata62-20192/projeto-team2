@@ -1,23 +1,16 @@
 package br.ufba.mata62.sistemaacademico;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PeriodoCursado {
-
 	private String periodo;
-	
 	private List<ComponenteCurricularCursado> componentesCurricularesCursados;
-
-	public List<ComponenteCurricularCursado> getComponentesCurricularesCursados() {
-		return componentesCurricularesCursados;
-	}
-
-	public void setComponentesCurricularesCursados(List<ComponenteCurricularCursado> componentesCurricularesCursados) {
-		this.componentesCurricularesCursados = componentesCurricularesCursados;
-	}
 	
-	public void insereComponentesCurricularesCursados(ComponenteCurricularCursado c) {
-		this.componentesCurricularesCursados.add(c);
+	public PeriodoCursado(String periodo){
+		this.periodo = periodo;
+		componentesCurricularesCursados = new ArrayList<ComponenteCurricularCursado>();
 	}
 
 	public String getPeriodo() {
@@ -26,5 +19,13 @@ public class PeriodoCursado {
 
 	public void setPeriodo(String periodo) {
 		this.periodo = periodo;
+	}
+	
+	public List<ComponenteCurricularCursado> getComponentesCurricularesCursados() {
+		return Collections.unmodifiableList(componentesCurricularesCursados);
+	}
+	
+	public void insereComponenteCurricularCursado(ComponenteCurricularCursado c) {
+		componentesCurricularesCursados.add(c);
 	}
 }

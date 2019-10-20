@@ -5,9 +5,9 @@ public class Main {
 	public static void main(String[] args) {
 		Universidade ufba = new Universidade("Universidade Federal da Bahia", "UFBA");
 		
-		Curso CC = new Curso("Ciência da Computação");
-		Curso SI = new Curso("Sistemas de Informação");
-		Curso LC = new Curso("Licenciatura em Computação");
+		Curso CC = new Curso("Ciencia da Computaçao");
+		Curso SI = new Curso("Sistemas de Informaçao");
+		Curso LC = new Curso("Licenciatura em Computaçao");
 		
 		ufba.insereCurso(CC);
 		ufba.insereCurso(SI);

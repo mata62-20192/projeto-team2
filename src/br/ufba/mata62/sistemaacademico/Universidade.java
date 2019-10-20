@@ -1,21 +1,23 @@
 package br.ufba.mata62.sistemaacademico;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Universidade {
 	private String nome;
 	private String sigla;
-	private ArrayList<Curso> cursos;
-	private ArrayList<Disciplina> disciplinas;
+	private List<Curso> cursos;
+	private Set<Disciplina> disciplinas;
 	private Set<Aluno> alunos;
 
 	public Universidade(String nome, String sigla) {
 		this.nome = nome;
 		this.sigla = sigla;
 		cursos = new ArrayList<Curso>();
-		disciplinas = new ArrayList<Disciplina>();
+		disciplinas = new HashSet<Disciplina>();
 		alunos = new HashSet<Aluno>();
 	}
 
@@ -35,38 +37,27 @@ public class Universidade {
 		this.sigla = sigla;
 	}
 
-	public ArrayList<Curso> getCursos() {
-		return cursos;
+	public List<Curso> getCursos() {
+		return Collections.unmodifiableList(cursos);
 	}
 
-	public void setCursos(ArrayList<Curso> cursos) {
-		this.cursos = cursos;
-	}
-
-	public ArrayList<Disciplina> getDisciplinas() {
-		return disciplinas;
-	}
-
-	public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
+	public Set<Disciplina> getDisciplinas() {
+		return Collections.unmodifiableSet(disciplinas);
 	}
 	
-	public void insereCurso(Curso curso){
-		cursos.add(curso);
-	}
-	
-	public void insereDisciplina(Disciplina disciplina) {
-		disciplinas.add(disciplina);
-	}
-
 	public Set<Aluno> getAlunos() {
-		return alunos;
+		return Collections.unmodifiableSet(alunos);
 	}
 
-	public void setAlunos(Set<Aluno> alunos) {
-		this.alunos = alunos;
+	public void insereCurso(Curso c){
+		cursos.add(c);
 	}
-	public void insereAlunos(Aluno aluno) {
-		alunos.add(aluno);
+	
+	public void insereDisciplina(Disciplina d) {
+		disciplinas.add(d);
+	}
+
+	public void insereAluno(Aluno a) {
+		alunos.add(a);
 	}
 }
