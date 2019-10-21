@@ -26,8 +26,12 @@ public class Historico {
 	private void imprimirHTML() {
 		
 	}
-
-	private int calcularCargaHorariaTotal() {
+	
+	private int calcularCargaHorariaOptativas() {
+		return 1;
+	}
+	
+	private int calcularCargaHorariaObrigatorias() {
 		return 1;
 	}
 	

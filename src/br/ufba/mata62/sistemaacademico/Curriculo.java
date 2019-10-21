@@ -21,12 +21,13 @@ public class Curriculo {
 	/*TODO: cargaHorariaOptativa, cargaHorariaObrigatoria, imprimir */
 	
 	public void adicionarComponenteOptativo(Disciplina disciplina) {
-		componentesCurricularesOptativos.add(new ComponenteCurricular(disciplina));
+		ComponenteCurricular c = new ComponenteCurricular(disciplina, Natureza.OPTATIVA);
+		componentesCurricularesOptativos.add(c);
 	}
 	
 	public void adicionarComponenteObrigatorio(Disciplina disciplina, int semestre) {
-		ComponenteCurricular componenteCurricular = new ComponenteCurricular(disciplina);
-		periodos.get(semestre).inserePeriodo(componenteCurricular);
+		ComponenteCurricular c = new ComponenteCurricular(disciplina, Natureza.OBRIGATORIA);
+		periodos.get(semestre).inserePeriodo(c);
 	}
 
 	public int getNumeroSemestres() {
