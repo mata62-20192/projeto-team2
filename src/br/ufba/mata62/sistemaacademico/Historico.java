@@ -1,6 +1,5 @@
 package br.ufba.mata62.sistemaacademico;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,11 +19,11 @@ public class Historico {
 		periodosCursados.add(p);
 	}
 	
-	private void imprimirTXT() {
+	public void imprimirTXT() {
 		
 	}
 	
-	private void imprimirHTML() {
+	public void imprimirHTML() {
 		
 	}
 	
@@ -32,7 +31,7 @@ public class Historico {
 		int retorno = 0;
 		for (PeriodoCursado periodoCursado : periodosCursados) {
 			for(ComponenteCurricularCursado componenteCurricularCursado : periodoCursado.getComponentesCurricularesCursados()) {
-				if(componenteCurricularCursado.getComponenteCurricular().getNatureza()==Natureza.OPTATIVA) {
+				if(componenteCurricularCursado.getComponenteCurricular().getNatureza() == Natureza.OPTATIVA) {
 					retorno+=componenteCurricularCursado.getComponenteCurricular().getDisciplina().getCargaHoraria();
 				}
 			}

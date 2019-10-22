@@ -1,6 +1,7 @@
 package br.ufba.mata62.sistemaacademico;
 
 public class Disciplina {
+
 	private String codigo;
 	private String nome;
 	private int cargaHoraria;
