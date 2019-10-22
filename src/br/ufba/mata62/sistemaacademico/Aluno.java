@@ -36,7 +36,8 @@ public class Aluno {
 	}
 	
 	public Curso getCurso() {
-		return curso;
+		Curso c = curso;
+		return c;
 	}
 
 	@Override

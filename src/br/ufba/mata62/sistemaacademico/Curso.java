@@ -9,9 +9,11 @@ public class Curso {
 	private Curriculo curriculo;
 	private Set<Aluno> alunos;
 	
-	public Curso(String nome) {
+	public Curso(String nome, Curriculo curriculo) {
 		this.nome = nome;
+		this.curriculo = curriculo;
 		alunos = new HashSet<Aluno>();
+		
 	}
 	
 	public String getNome() {
@@ -20,6 +22,11 @@ public class Curso {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public Curriculo getCurriculo() {
+		Curriculo c = curriculo;
+		return c;
 	}
 	
 	public Set<Aluno> getAlunos(){

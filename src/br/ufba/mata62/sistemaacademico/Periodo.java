@@ -14,6 +14,8 @@ public class Periodo {
 	}
 		
 	public void inserePeriodo(ComponenteCurricular componenteCurricular) {
+		
+	public void insereComponenteCurricular(ComponenteCurricular componenteCurricular) {
 		componentesCurricularesObrigatorios.add(componenteCurricular);
 	}
 
@@ -25,4 +27,25 @@ public class Periodo {
 		return numero;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + numero;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Periodo other = (Periodo) obj;
+		if (numero != other.numero)
+			return false;
+		return true;
+	}
 }
