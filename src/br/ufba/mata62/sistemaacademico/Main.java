@@ -58,6 +58,8 @@ public class Main {
 		for(ComponenteCurricular cc : periodo.getComponentesCurricularesObrigatorios()) {
 			ComponenteCurricularCursado ccc = new ComponenteCurricularCursado(cc);
 			pabloHenrique.getHistorico().getPeriodosCursados().get(0).insereComponenteCurricularCursado(ccc);
+			ccc.setConceito(Conceito.APROVADO);
+			ccc.setNota(5.0);
 		}
 		
 		System.out.println("Alunos da Universidade:");
@@ -65,6 +67,7 @@ public class Main {
 			System.out.println("Aluno: " + aluno.getNome());
 			System.out.println("Matricula: " + aluno.getMatricula());
 			aluno.getHistorico().imprimirTXT();
+			aluno.getHistorico().imprimirHTML();
 			System.out.println();
 		}
 	}
