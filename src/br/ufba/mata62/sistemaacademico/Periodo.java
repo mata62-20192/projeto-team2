@@ -12,15 +12,17 @@ public class Periodo {
 		this.numero = numero;
 		componentesCurricularesObrigatorios = new ArrayList<ComponenteCurricular>();
 	}
-	
-	/*TODO: calcularCargaHoraria */
-	
+		
 	public void inserePeriodo(ComponenteCurricular componenteCurricular) {
 		componentesCurricularesObrigatorios.add(componenteCurricular);
 	}
 
 	public List<ComponenteCurricular> getComponentesCurricularesObrigatorios() {
 		return Collections.unmodifiableList(componentesCurricularesObrigatorios);
+	}
+
+	public int getNumero() {
+		return numero;
 	}
 
 }

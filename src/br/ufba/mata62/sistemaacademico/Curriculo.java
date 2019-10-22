@@ -1,4 +1,4 @@
-package br.ufba.mata62.sistemaacademico;
+package br.ufba.mata62.sistemaacademico; 
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,8 +17,24 @@ public class Curriculo {
 			periodos = new ArrayList<Periodo>(i);		
 		}
 	}
-
-	/*TODO: cargaHorariaOptativa, cargaHorariaObrigatoria, imprimir */
+	
+	public void imprimir() {
+		System.out.println("Disciplinas Obrigatórias");
+		for(Periodo periodo : periodos) {
+			System.out.println("Semestre: " + periodo.getNumero());
+			for(ComponenteCurricular componente : periodo.getComponentesCurricularesObrigatorios()) {
+				System.out.println("	Código: " + componente.getDisciplina().getCodigo());
+				System.out.println("	Disciplina: " + componente.getDisciplina().getNome());
+				System.out.println("	Carga Horária: " + componente.getDisciplina().getCargaHoraria());
+			}
+		}
+		System.out.println("Disciplinas Optativas");
+		for(ComponenteCurricular componente : componentesCurricularesOptativos) {
+			System.out.println("	Código: " + componente.getDisciplina().getCodigo());
+			System.out.println("	Disciplina: " + componente.getDisciplina().getNome());
+			System.out.println("	Carga Horária: " + componente.getDisciplina().getCargaHoraria());
+		}
+	} 
 	
 	public void adicionarComponenteOptativo(Disciplina disciplina) {
 		ComponenteCurricular c = new ComponenteCurricular(disciplina, Natureza.OPTATIVA);
