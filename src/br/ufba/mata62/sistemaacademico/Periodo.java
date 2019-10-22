@@ -12,19 +12,17 @@ public class Periodo {
 		this.numero = numero;
 		componentesCurricularesObrigatorios = new ArrayList<ComponenteCurricular>();
 	}
-		
-	public void inserePeriodo(ComponenteCurricular componenteCurricular) {
-		
-	public void insereComponenteCurricular(ComponenteCurricular componenteCurricular) {
-		componentesCurricularesObrigatorios.add(componenteCurricular);
+	
+	public int getNumero() {
+		return numero;
 	}
 
 	public List<ComponenteCurricular> getComponentesCurricularesObrigatorios() {
 		return Collections.unmodifiableList(componentesCurricularesObrigatorios);
 	}
-
-	public int getNumero() {
-		return numero;
+	
+	public void insereComponenteCurricular(ComponenteCurricular componenteCurricular) {
+		componentesCurricularesObrigatorios.add(componenteCurricular);
 	}
 
 	@Override

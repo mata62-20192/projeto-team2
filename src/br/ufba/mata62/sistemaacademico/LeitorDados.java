@@ -2,13 +2,15 @@ package br.ufba.mata62.sistemaacademico;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
-public class LeituraDeDados {
+public class LeitorDados {
 
 	private String nomeDoArquivo;
 	private Universidade universidade;
 	
-	public LeituraDeDados(String nomeDoArquivo, Universidade universidade) {
+	public LeitorDados(String nomeDoArquivo, Universidade universidade) {
 		this.nomeDoArquivo = nomeDoArquivo;
 		this.universidade = universidade;
 	}
@@ -17,7 +19,10 @@ public class LeituraDeDados {
 
 		try {
 			FileReader arq = new FileReader("src/"+ this.nomeDoArquivo);
-			BufferedReader lerArq = new BufferedReader(arq);
+			// BufferedReader lerArq = new BufferedReader(arq);
+			
+			BufferedReader lerArq = new BufferedReader(new InputStreamReader(new FileInputStream("src/"+ nomeDoArquivo), "UTF-8"));
+			
 			String linha = "";
 
 			int numCursos = Integer.parseInt(lerArq.readLine());
@@ -44,7 +49,7 @@ public class LeituraDeDados {
 					Disciplina disciplina = new Disciplina(codigoDisciplina, nomeDisciplina, cargaHoraria);
 					universidade.insereDisciplina(disciplina);
 
-					if (naturezaDisciplina == "OB") {
+					if (naturezaDisciplina.equals("OB")) {
 						curriculo.adicionarComponenteObrigatorio(disciplina, numeroSemestre);
 					} else {
 						curriculo.adicionarComponenteOptativo(disciplina);

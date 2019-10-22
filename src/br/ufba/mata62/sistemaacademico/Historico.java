@@ -19,14 +19,6 @@ public class Historico {
 		periodosCursados.add(p);
 	}
 	
-	public void imprimirTXT() {
-		
-	}
-	
-	public void imprimirHTML() {
-		
-	}
-	
 	private int calcularCargaHorariaOptativas() {
 		int retorno = 0;
 		for (PeriodoCursado periodoCursado : periodosCursados) {
@@ -54,12 +46,45 @@ public class Historico {
 	private Double calcularCoeficienteRendimento() {
 		int disciplinas = 0;
 		double notas = 0;
+		boolean notaNula = true;
+		
 		for (PeriodoCursado periodoCursado : periodosCursados) {
 			for(ComponenteCurricularCursado componenteCurricularCursado : periodoCursado.getComponentesCurricularesCursados()) {
-				disciplinas++;
-				notas+=componenteCurricularCursado.getNota();
+				if(componenteCurricularCursado.getNota() != null) {
+					notas+=componenteCurricularCursado.getNota();
+					disciplinas++;
+					
+					notaNula = false;					
+				}
 			}
 		}
-		return notas/disciplinas;
+		
+		if(notaNula) {
+			return null;
+		}else {
+			return notas/disciplinas;
+		}
+	}
+	
+	public void imprimirTXT() {
+		for(PeriodoCursado periodoCursado : periodosCursados) {
+			System.out.println("Periodo: " + periodoCursado.getPeriodo());
+			for(ComponenteCurricularCursado ccc : periodoCursado.getComponentesCurricularesCursados()) {
+				System.out.println("    Nome: " + ccc.getComponenteCurricular().getDisciplina().getNome());
+				System.out.println("    Codigo: " + ccc.getComponenteCurricular().getDisciplina().getCodigo());
+				System.out.println("    Carga Horaria: " + ccc.getComponenteCurricular().getDisciplina().getCargaHoraria());
+				System.out.println("    Natureza: " + ccc.getComponenteCurricular().getNatureza());
+				System.out.println("    Nota: " + ccc.getNota());
+				System.out.println("    Conceito: " + ccc.getConceito());
+			}
+		}
+		
+		System.out.println("    Carga Horaria Total das Disciplinas Obrigatorias: " + calcularCargaHorariaObrigatorias());
+		System.out.println("    Carga Horaria Total das Disciplinas Optativas: " + calcularCargaHorariaOptativas());
+		System.out.println("    Coeficiente de Rendimento: " + calcularCoeficienteRendimento());
+	}
+	
+	public void imprimirHTML() {
+		
 	}
 }
