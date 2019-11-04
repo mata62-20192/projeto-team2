@@ -2,25 +2,29 @@ package br.ufba.mata62.sistemaacademico;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Curriculo {
 	private List<ComponenteCurricular> componentesCurricularesOptativos;
-	private Set<Periodo> periodos;
+	private Map<Integer, Periodo> periodos;
 	
 	public Curriculo() { 
 		componentesCurricularesOptativos = new ArrayList<ComponenteCurricular>();
-		periodos = new HashSet<Periodo>();
+		periodos = new TreeMap<Integer, Periodo>();
 	}
 	
 	public List<ComponenteCurricular> getComponentesCurricularesOptativos() {
 		return Collections.unmodifiableList(componentesCurricularesOptativos);
 	}
 
-	public Set<Periodo> getPeriodos() {
-		return Collections.unmodifiableSet(periodos);
+	public Map<Integer, Periodo> getPeriodos() {
+		return Collections.unmodifiableMap(periodos);
+	}
+	
+	public List<ComponenteCurricular> getComponentesCurricularesObrigatorios(int s) {
+		return periodos.get(s).getComponentesCurricularesObrigatorios(); 
 	}
 	
 	public void adicionarComponenteOptativo(Disciplina disciplina) {
@@ -30,24 +34,19 @@ public class Curriculo {
 	
 	
 	public void adicionarComponenteObrigatorio(Disciplina disciplina, int semestre) {
-		Periodo periodo = new Periodo(semestre);
+		ComponenteCurricular c = new ComponenteCurricular(disciplina, Natureza.OBRIGATORIA);
 		
-		if(!periodos.contains(periodo)) {
-			periodos.add(periodo);
-		}else{
-			ComponenteCurricular c = new ComponenteCurricular(disciplina, Natureza.OBRIGATORIA);
-			
-			for(Periodo p : periodos) {
-				if(p.equals(periodo)) {
-					p.insereComponenteCurricular(c);
-				}
-			}
+		if(!periodos.containsKey(semestre)) {
+			Periodo periodo = new Periodo(semestre);
+			periodos.put(semestre, periodo);
 		}
+		
+		periodos.get(semestre).insereComponenteCurricular(c);
 	}
 	
 	public void imprimir() {
 		System.out.println("Disciplinas Obrigatorias:");
-		for(Periodo periodo : periodos) {
+		for(Periodo periodo : periodos.values()) {
 			System.out.println("Semestre " + periodo.getNumero());
 			for(ComponenteCurricular componente : periodo.getComponentesCurricularesObrigatorios()) {
 				System.out.println("	Disciplina: " + componente.getDisciplina().getNome());

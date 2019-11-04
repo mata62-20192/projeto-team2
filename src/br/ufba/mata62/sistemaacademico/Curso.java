@@ -2,6 +2,7 @@ package br.ufba.mata62.sistemaacademico;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Curso {
@@ -31,5 +32,9 @@ public class Curso {
 	
 	public void insereAluno(Aluno aluno) {
 		alunos.add(aluno);
+	}
+	
+	public List<ComponenteCurricular> getComponentesCurricularesObrigatorios(int s){
+		return curriculo.getComponentesCurricularesObrigatorios(s);
 	}
 }

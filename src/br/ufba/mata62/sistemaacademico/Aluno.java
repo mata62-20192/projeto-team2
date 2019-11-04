@@ -1,5 +1,7 @@
 package br.ufba.mata62.sistemaacademico;
 
+import java.util.List;
+
 public class Aluno {
 	private String nome;
 	private long matricula;
@@ -40,6 +42,14 @@ public class Aluno {
 		return c;
 	}
 
+	public List<ComponenteCurricular> getComponentesCurricularesObrigatorios(int s) {
+		return curso.getComponentesCurricularesObrigatorios(s);
+	}
+	
+	public void insereComponenteCurricularCursado(int s, ComponenteCurricularCursado c) {
+		historico.insereComponenteCurricularCursado(s, c);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

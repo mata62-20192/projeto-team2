@@ -47,7 +47,7 @@ public class LeitorDados {
 					String codigoCurriculo = split[4];
 
 					Disciplina disciplina = new Disciplina(codigoDisciplina, nomeDisciplina, cargaHoraria);
-					universidade.insereDisciplina(disciplina);
+					universidade.insereDisciplina(codigoDisciplina, disciplina);
 
 					if (naturezaDisciplina.equals("OB")) {
 						curriculo.adicionarComponenteObrigatorio(disciplina, numeroSemestre);

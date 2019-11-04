@@ -19,6 +19,10 @@ public class Historico {
 		periodosCursados.add(p);
 	}
 
+	public void insereComponenteCurricularCursado(int s, ComponenteCurricularCursado c) {
+		periodosCursados.get(s - 1).insereComponenteCurricularCursado(c);
+	}
+	
 	private int calcularCargaHorariaOptativas() {
 		int retorno = 0;
 		for (PeriodoCursado periodoCursado : periodosCursados) {
