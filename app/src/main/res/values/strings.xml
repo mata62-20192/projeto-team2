@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">SistemaAcademico</string>
-    <string name="title_activity_cadastrar_aluno">Cadastrar Aluno</string>
     <string name="title_activity_listar_alunos">Alunos</string>
+    <string name="title_activity_cadastrar_aluno">Cadastrar Aluno</string>
+    <string name="title_activity_curriculo">Curriculo</string>
+    <string name="title_activity_escalonamento">Escalonamento</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="action_cadastrar_aluno">Cadastrar</string>
+    <string name="action_sort_semestre">Semestre</string>
+    <string name="action_sort_cr">CR</string>
+    <string name="action_settings">Settings</string>
 </resources>

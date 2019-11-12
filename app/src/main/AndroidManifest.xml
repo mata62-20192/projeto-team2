@@ -10,24 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".controller.CadastrarAluno"
+            android:name=".controller.CadastrarAlunoActivity"
             android:label="@string/title_activity_cadastrar_aluno"
-            android:parentActivityName=".controller.ListarAlunos"
+            android:parentActivityName=".controller.ListarAlunosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".controller.ListarAlunos"
+            android:name=".controller.ListarAlunosActivity"
             android:label="@string/title_activity_listar_alunos"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".controller.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controller.MainActivity"
             android:theme="@style/Theme.Transparent">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".controller.EscalonamentoActivity"
+            android:label="@string/title_activity_escalonamento"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controller.CurriculoActivity"
+            android:label="@string/title_activity_curriculo"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import br.ufba.mata62.sistemaacademico.R;
 import br.ufba.mata62.sistemaacademico.domain.*;
 import br.ufba.mata62.sistemaacademico.repository.*;
-import br.ufba.mata62.sistemaacademico.service.UniversidadeService;
 
 public class MainActivity extends AppCompatActivity {
     final static int codigoCurso = 112140;
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         LeitorDados leitorDados = new LeitorDados("dados.txt");
         leitorDados.lerDados(assetManager);
 
-        startActivity(new Intent(this, ListarAlunos.class));
+        startActivity(new Intent(this, ListarAlunosActivity.class));
         finish();
     }
 }

@@ -76,8 +76,8 @@ public class Main {
 		for(Aluno aluno : Universidade.getAlunos().values()){
 			System.out.println("Aluno: " + aluno.getNome());
 			System.out.println("Matricula: " + aluno.getMatricula());
-			aluno.getHistorico().imprimirTXT();
-			aluno.getHistorico().imprimirHTML();
+			HistoricoService.imprimirTXT(aluno.getHistorico());
+			HistoricoService.imprimirHTML(aluno.getHistorico());
 			System.out.println();
 		}
 	}

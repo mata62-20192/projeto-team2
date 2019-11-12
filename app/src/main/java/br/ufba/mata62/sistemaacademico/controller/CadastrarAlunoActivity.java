@@ -7,7 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,7 +14,7 @@ import br.ufba.mata62.sistemaacademico.R;
 import br.ufba.mata62.sistemaacademico.domain.*;
 import br.ufba.mata62.sistemaacademico.service.*;
 
-public class CadastrarAluno extends AppCompatActivity {
+public class CadastrarAlunoActivity extends AppCompatActivity {
     private EditText edtNome;
     private EditText edtSemestre;
     private EditText edtMatricula;
@@ -106,7 +105,6 @@ public class CadastrarAluno extends AppCompatActivity {
             Toast.makeText(this, "Aluno cadastrado.", Toast.LENGTH_SHORT).show();
             finish();
         }catch(Exception e){
-            Toast.makeText(this, "Falha", Toast.LENGTH_SHORT).show();
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
             dialog.setTitle("Aviso");
             dialog.setMessage(e.getMessage());
@@ -118,7 +116,7 @@ public class CadastrarAluno extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_cadastrar_aluno, menu);
+        inflater.inflate(R.menu.cadastrar_aluno, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
