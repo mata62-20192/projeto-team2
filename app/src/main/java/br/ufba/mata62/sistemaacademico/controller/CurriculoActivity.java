@@ -54,11 +54,11 @@ public class CurriculoActivity extends AppCompatActivity
 
         if (id == R.id.nav_listar_alunos) {
             startActivity(new Intent(this, ListarAlunosActivity.class));
+            finish();
         } else if (id == R.id.nav_escalonamento) {
             startActivity(new Intent(this, EscalonamentoActivity.class));
+            finish();
         }
-
-        finish();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.curriculo_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

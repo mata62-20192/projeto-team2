@@ -34,7 +34,12 @@
         <activity
             android:name=".controller.CurriculoActivity"
             android:label="@string/title_activity_curriculo"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controller.AlunoActivity"
+            android:label="@string/title_activity_aluno"
+            android:parentActivityName=".controller.ListarAlunosActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

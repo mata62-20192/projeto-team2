@@ -1,10 +1,10 @@
-package br.ufba.mata62.sistemaacademico.service;
+package br.ufba.mata62.sistemaacademico.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import br.ufba.mata62.sistemaacademico.domain.Aluno;
+import br.ufba.mata62.sistemaacademico.service.HistoricoService;
 
 public class EscalonamentoSemestreStrategy implements EscalonamentoStrategy {
 

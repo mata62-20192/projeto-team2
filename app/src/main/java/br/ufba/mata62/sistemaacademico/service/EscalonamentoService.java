@@ -3,6 +3,7 @@ package br.ufba.mata62.sistemaacademico.service;
 import java.util.ArrayList;
 
 import br.ufba.mata62.sistemaacademico.domain.Aluno;
+import br.ufba.mata62.sistemaacademico.domain.EscalonamentoStrategy;
 
 public class EscalonamentoService {
     private static EscalonamentoStrategy strategy;

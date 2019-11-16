@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import br.ufba.mata62.sistemaacademico.R;
 import br.ufba.mata62.sistemaacademico.domain.*;
-import br.ufba.mata62.sistemaacademico.service.*;
+import br.ufba.mata62.sistemaacademico.service.EscalonamentoService;
 
 public class EscalonamentoActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -87,19 +87,22 @@ public class EscalonamentoActivity extends AppCompatActivity
         if (id == R.id.action_sort) {
             sort = !sort;
 
+            alunos = new ArrayList<>(curso.getAlunos().values());
+
             if(sort){
-                //item.setIcon(R.drawable.ic_sort_ascending);
                 item.setTitle(R.string.action_sort_semestre);
 
                 EscalonamentoService.setEscalonamentoStrategy(new EscalonamentoCRStrategy());
                 EscalonamentoService.ordenar(alunos);
             }else{
-                //item.setIcon(R.drawable.ic_sort_descending);
                 item.setTitle(R.string.action_sort_cr);
 
                 EscalonamentoService.setEscalonamentoStrategy(new EscalonamentoSemestreStrategy());
                 EscalonamentoService.ordenar(alunos);
             }
+
+            alunoEscalonamentoAdapter.clear();
+            alunoEscalonamentoAdapter.addAll(alunos);
 
             alunoEscalonamentoAdapter.notifyDataSetChanged();
 
@@ -117,11 +120,11 @@ public class EscalonamentoActivity extends AppCompatActivity
 
         if (id == R.id.nav_listar_alunos) {
             startActivity(new Intent(this, ListarAlunosActivity.class));
+            finish();
         } else if (id == R.id.nav_curriculo) {
             startActivity(new Intent(this, CurriculoActivity.class));
+            finish();
         }
-
-        finish();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.escalonamento_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -1,4 +1,4 @@
-package br.ufba.mata62.sistemaacademico.service;
+package br.ufba.mata62.sistemaacademico.domain;
 
 import java.util.ArrayList;
 import java.util.Map;

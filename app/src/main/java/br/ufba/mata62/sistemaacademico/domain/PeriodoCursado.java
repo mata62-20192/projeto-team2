@@ -10,15 +10,11 @@ public class PeriodoCursado {
 	
 	public PeriodoCursado(String periodo){
 		this.periodo = periodo;
-		componentesCurricularesCursados = new ArrayList<ComponenteCurricularCursado>();
+		componentesCurricularesCursados = new ArrayList<>();
 	}
 
 	public String getPeriodo() {
 		return periodo;
-	}
-
-	public void setPeriodo(String periodo) {
-		this.periodo = periodo;
 	}
 	
 	public List<ComponenteCurricularCursado> getComponentesCurricularesCursados() {

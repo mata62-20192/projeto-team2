@@ -8,13 +8,18 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 import br.ufba.mata62.sistemaacademico.R;
@@ -26,7 +31,7 @@ public class ListarAlunosActivity extends AppCompatActivity
     private FloatingActionButton fab;
     private ListView listView;
     private AlunoAdapter alunoAdapter;
-    private ArrayList<Aluno> alunos;
+    private ArrayList<Aluno> alunos = null;
     private Curso curso;
 
     @Override
@@ -63,7 +68,11 @@ public class ListarAlunosActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> adapterView, View view,
                                     int i, long l) {
                 Aluno aluno = (Aluno) listView.getItemAtPosition(i);
-                //TODO
+
+                Intent intent = new Intent(ListarAlunosActivity.this, AlunoActivity.class);
+
+                intent.putExtra("aluno", aluno);
+                startActivity(intent);
             }
         });
 
@@ -94,14 +103,40 @@ public class ListarAlunosActivity extends AppCompatActivity
 
         if (id == R.id.nav_curriculo) {
             startActivity(new Intent(this, CurriculoActivity.class));
+            finish();
         } else if (id == R.id.nav_escalonamento) {
             startActivity(new Intent(this, EscalonamentoActivity.class));
+            finish();
         }
-
-        finish();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.listar_alunos_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.listar_alunos, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                alunoAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
         return true;
     }
 
@@ -111,24 +146,9 @@ public class ListarAlunosActivity extends AppCompatActivity
 
         alunos = new ArrayList<>(curso.getAlunos().values());
 
-        Aluno aluno1 = new Aluno("Cabeça1", 123456, "2018.1", "123", curso);
-        Aluno aluno2 = new Aluno("Cabeça2", 123456, "2018.1", "123", curso);
-        Aluno aluno3 = new Aluno("Cabeça3", 123456, "2018.1", "123", curso);
-        Aluno aluno4 = new Aluno("Cabeça4", 123456, "2018.1", "123", curso);
-        Aluno aluno5 = new Aluno("Cabeça5", 123456, "2018.1", "123", curso);
-        Aluno aluno6 = new Aluno("Cabeça6", 123456, "2018.1", "123", curso);
+        alunoAdapter.clear();
+        alunoAdapter.addAll(alunos);
 
-        alunos.add(aluno1);
-        alunos.add(aluno2);
-        alunos.add(aluno3);
-        alunos.add(aluno4);
-        alunos.add(aluno5);
-        alunos.add(aluno6);
-
-        alunoAdapter = new AlunoAdapter(this, alunos);
-
-        listView.setAdapter(alunoAdapter);
-
-        //alunoAdapter.notifyDataSetChanged();
+        alunoAdapter.notifyDataSetChanged();
     }
 }
