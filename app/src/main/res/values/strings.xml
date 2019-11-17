@@ -14,4 +14,10 @@
     <string name="action_sort_cr">CR</string>
     <string name="action_settings">Settings</string>
     <string name="action_search_title">Pesquisar</string>
+
+    <string-array name="historicoArray">
+        <item>Histórico</item>
+        <item>HTML</item>
+        <item>TXT</item>
+    </string-array>
 </resources>
