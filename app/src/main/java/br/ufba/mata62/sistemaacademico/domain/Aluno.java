@@ -12,7 +12,7 @@ public class Aluno implements Parcelable {
 	private String senha;
 	private Historico historico;
 	private Curso curso;
-	
+
 	public Aluno(String nome, long matricula, String semestreInicio, String senha, Curso curso) {
 		this.nome = nome;
 		this.matricula = matricula;
@@ -43,11 +43,11 @@ public class Aluno implements Parcelable {
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public long getMatricula() {
 		return matricula;
 	}
@@ -55,15 +55,15 @@ public class Aluno implements Parcelable {
 	public String getSemestreInicio() {
 		return semestreInicio;
 	}
-	
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
 	public Historico getHistorico() {
 		return historico;
 	}
-	
+
 	public Curso getCurso() {
 		Curso c = curso;
 		return c;
@@ -72,7 +72,7 @@ public class Aluno implements Parcelable {
 	public List<ComponenteCurricular> getComponentesCurricularesObrigatorios(int s) {
 		return curso.getComponentesCurricularesObrigatorios(s);
 	}
-	
+
 	public void insereComponenteCurricularCursado(int s, ComponenteCurricularCursado c) {
 		historico.insereComponenteCurricularCursado(s, c);
 	}

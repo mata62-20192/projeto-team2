@@ -9,6 +9,8 @@ import br.ufba.mata62.sistemaacademico.domain.ComponenteCurricularCursado;
 import br.ufba.mata62.sistemaacademico.domain.Conceito;
 import br.ufba.mata62.sistemaacademico.domain.Curso;
 import br.ufba.mata62.sistemaacademico.domain.Disciplina;
+import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoHtml;
+import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoTxt;
 import br.ufba.mata62.sistemaacademico.repository.LeitorDados;
 
 import br.ufba.mata62.sistemaacademico.domain.PeriodoCursado;
@@ -24,6 +26,9 @@ public class Main {
 		
 		LeitorDados leitorDados = new LeitorDados("dados.txt");
 		leitorDados.lerDados();
+		
+		ImpressaoHistoricoHtml html = new ImpressaoHistoricoHtml();
+		ImpressaoHistoricoTxt txt = new ImpressaoHistoricoTxt();
 		
 		System.out.println("Cursos da Universidade:");
 		for(Curso curso : Universidade.getCursos().values()) {
@@ -75,9 +80,9 @@ public class Main {
 		System.out.println("Alunos da Universidade:");
 		for(Aluno aluno : Universidade.getAlunos().values()){
 			System.out.println("Aluno: " + aluno.getNome());
-			System.out.println("Matricula: " + aluno.getMatricula());
-			HistoricoService.imprimirTXT(aluno.getHistorico());
-			HistoricoService.imprimirHTML(aluno.getHistorico());
+			System.out.println("Matricula: " + aluno.getMatricula());	
+			html.render(aluno.getHistorico());
+			txt.render(aluno.getHistorico());
 			System.out.println();
 		}
 	}
