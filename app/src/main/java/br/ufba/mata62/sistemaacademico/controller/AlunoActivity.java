@@ -3,12 +3,12 @@ package br.ufba.mata62.sistemaacademico.controller;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.Menu;
 import android.widget.TextView;
 import java.util.Locale;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
-import android.widget.AdapterView;
+import android.view.MenuItem;
 
 import br.ufba.mata62.sistemaacademico.R;
 
@@ -45,26 +45,22 @@ public class AlunoActivity extends AppCompatActivity {
             lblMatricula.setText(matricula);
             lblSemestre.setText(semestre);
         }
-		
-		historicoMenuSpinner = (Spinner) findViewById(R.id.historicoMenuSpinner);
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.historico, menu);
+
+        MenuItem item = menu.findItem(R.id.spinner);
+        Spinner historicoMenuSpinner = (Spinner) item.getActionView();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.historicoArray, R.layout.spinner_custom_item);
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         historicoMenuSpinner.setAdapter(adapter);
-
-        historicoMenuSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            public void onItemSelected(AdapterView parent, View view, int pos, long id) {
-                // An item was selected. You can retrieve the selected item using
-                // parent.getItemAtPosition(pos)
-            }
-            public void onNothingSelected(AdapterView parent){
-                // Another interface callback
-            }
-        });
+        return true;
 
     }
 }

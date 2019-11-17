@@ -15,9 +15,12 @@
     <string name="action_settings">Settings</string>
     <string name="action_search_title">Pesquisar</string>
 
+    <string name="drop_down_menu">Histórico</string>
+
     <string-array name="historicoArray">
-        <item>Histórico</item>
+        <item>HISTÓRICO</item>
         <item>HTML</item>
         <item>TXT</item>
     </string-array>
+
 </resources>

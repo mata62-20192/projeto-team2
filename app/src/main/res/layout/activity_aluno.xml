@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context="br.ufba.mata62.sistemaacademico.controller.AlunoActivity">
 
+    <include
+        layout="@layout/content_aluno" />
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,19 +21,6 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <Spinner
-            android:id="@+id/historicoMenuSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            android:layout_gravity="end"
-            />
-
     </android.support.design.widget.AppBarLayout>
-
-    <include
-        layout="@layout/content_aluno" />
 
 </android.support.design.widget.CoordinatorLayout>
