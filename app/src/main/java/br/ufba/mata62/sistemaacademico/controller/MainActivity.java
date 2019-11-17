@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         AssetManager assetManager = getResources().getAssets();
 
-        LeitorDados leitorDados = new LeitorDados("dados.txt");
+        LeitorDadosAndroid leitorDados = new LeitorDadosAndroid("dados.txt");
         leitorDados.lerDados(assetManager);
 
         curso = Universidade.getCursos().get(codigoCurso);

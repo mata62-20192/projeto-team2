@@ -1,11 +1,8 @@
 package br.ufba.mata62.sistemaacademico.domain;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.List;
 
-public class Aluno implements Parcelable {
+public class Aluno {
 	private String nome;
 	private long matricula;
 	private String semestreInicio;
@@ -21,24 +18,6 @@ public class Aluno implements Parcelable {
 		this.curso = curso;
 		historico = new Historico();
 	}
-
-	protected Aluno(Parcel in) {
-		nome = in.readString();
-		matricula = in.readLong();
-		semestreInicio = in.readString();
-	}
-
-	public static final Creator<Aluno> CREATOR = new Creator<Aluno>() {
-		@Override
-		public Aluno createFromParcel(Parcel in) {
-			return new Aluno(in);
-		}
-
-		@Override
-		public Aluno[] newArray(int size) {
-			return new Aluno[size];
-		}
-	};
 
 	public String getNome() {
 		return nome;
@@ -97,17 +76,5 @@ public class Aluno implements Parcelable {
 		if (matricula != other.matricula)
 			return false;
 		return true;
-	}
-
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel parcel, int i) {
-		parcel.writeString(nome);
-		parcel.writeLong(matricula);
-		parcel.writeString(semestreInicio);
 	}
 }

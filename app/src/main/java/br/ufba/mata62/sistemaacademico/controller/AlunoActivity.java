@@ -1,15 +1,12 @@
 package br.ufba.mata62.sistemaacademico.controller;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 import java.util.Locale;
 
 import br.ufba.mata62.sistemaacademico.R;
-import br.ufba.mata62.sistemaacademico.domain.Aluno;
 
 public class AlunoActivity extends AppCompatActivity {
     private TextView lblNome;
@@ -28,15 +25,20 @@ public class AlunoActivity extends AppCompatActivity {
         lblMatricula = (TextView) findViewById(R.id.lblMatricula);
         lblSemestre = (TextView) findViewById(R.id.lblSemestre);
 
-        Intent intent = getIntent();
-        Aluno aluno = intent.getParcelableExtra("aluno");
+        Bundle extras = getIntent().getExtras();
 
-        String nome = "Nome: " + aluno.getNome();
-        String matricula = "Matrícula: " + String.format(Locale.ENGLISH, "%d", aluno.getMatricula());
-        String semestre = "Semestre de Ingresso: " + aluno.getSemestreInicio();
+        if(extras != null){
+            String nomeAluno = extras.getString("nome");
+            long matriculaAluno = extras.getLong("matricula");
+            String semestreAluno = extras.getString("semestre");
 
-        lblNome.setText(nome);
-        lblMatricula.setText(matricula);
-        lblSemestre.setText(semestre);
+            String nome = "Nome: " + nomeAluno;
+            String matricula = "Matrícula: " + String.format(Locale.ENGLISH, "%d", matriculaAluno);
+            String semestre = "Semestre de Ingresso: " + semestreAluno;
+
+            lblNome.setText(nome);
+            lblMatricula.setText(matricula);
+            lblSemestre.setText(semestre);
+        }
     }
 }
