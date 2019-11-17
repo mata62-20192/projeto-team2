@@ -71,7 +71,9 @@ public class ListarAlunosActivity extends AppCompatActivity
 
                 Intent intent = new Intent(ListarAlunosActivity.this, AlunoActivity.class);
 
-                intent.putExtra("aluno", aluno);
+                intent.putExtra("nome", aluno.getNome());
+                intent.putExtra("matricula", aluno.getMatricula());
+                intent.putExtra("semestre", aluno.getSemestreInicio());
                 startActivity(intent);
             }
         });
