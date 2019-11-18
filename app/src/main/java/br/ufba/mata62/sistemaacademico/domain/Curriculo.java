@@ -44,22 +44,4 @@ public class Curriculo {
 		periodos.get(semestre).insereComponenteCurricular(c);
 	}
 	
-	public void imprimir() {
-		System.out.println("Disciplinas Obrigatorias:");
-		for(Periodo periodo : periodos.values()) {
-			System.out.println("Semestre " + periodo.getNumero());
-			for(ComponenteCurricular componente : periodo.getComponentesCurricularesObrigatorios()) {
-				System.out.println("	Disciplina: " + componente.getDisciplina().getNome());
-				System.out.println("	Codigo: " + componente.getDisciplina().getCodigo());
-				System.out.println("	Carga Horaria: " + componente.getDisciplina().getCargaHoraria());
-			}
-		}
-		
-		System.out.println("Disciplinas Optativas:");
-		for(ComponenteCurricular componente : componentesCurricularesOptativos) {
-			System.out.println("	Disciplina: " + componente.getDisciplina().getNome());
-			System.out.println("	Codigo: " + componente.getDisciplina().getCodigo());
-			System.out.println("	Carga Horaria: " + componente.getDisciplina().getCargaHoraria());
-		}
-	} 
 }
