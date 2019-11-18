@@ -26,6 +26,7 @@ public class AlunoActivity extends AppCompatActivity {
     private TextView lblNome;
     private TextView lblMatricula;
     private TextView lblSemestre;
+    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class AlunoActivity extends AppCompatActivity {
         lblNome = (TextView) findViewById(R.id.lblNome);
         lblMatricula = (TextView) findViewById(R.id.lblMatricula);
         lblSemestre = (TextView) findViewById(R.id.lblSemestre);
+        webView = (WebView) findViewById(R.id.webView);
 
         Bundle extras = getIntent().getExtras();
 
@@ -63,7 +65,6 @@ public class AlunoActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.spinner);
         Spinner historicoMenuSpinner = (Spinner) item.getActionView();
 
-        final WebView webView = (WebView) findViewById(R.id.webview);
 //        webView.setWebViewClient(new WebViewClient());
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,

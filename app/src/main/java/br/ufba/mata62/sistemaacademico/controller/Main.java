@@ -11,7 +11,6 @@ import br.ufba.mata62.sistemaacademico.domain.Curso;
 import br.ufba.mata62.sistemaacademico.domain.Disciplina;
 import br.ufba.mata62.sistemaacademico.domain.Historico;
 import br.ufba.mata62.sistemaacademico.service.ImpressaoCurriculoService;
-import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistorico;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoHtml;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoTemplate;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoTxt;
