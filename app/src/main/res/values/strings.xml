@@ -18,7 +18,6 @@
     <string name="drop_down_menu">Histórico</string>
 
     <string-array name="historicoArray">
-        <item>HISTÓRICO</item>
         <item>HTML</item>
         <item>TXT</item>
     </string-array>
