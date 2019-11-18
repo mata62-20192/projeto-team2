@@ -2,9 +2,9 @@ package br.ufba.mata62.sistemaacademico.domain;
 
 import br.ufba.mata62.sistemaacademico.service.HistoricoService;
 
-public class ImpressaoHistoricoHtml implements ImpressaoHistorico {	
-	
-	
+public class ImpressaoHistoricoHtml extends ImpressaoHistoricoTemplate {
+
+	@Override
 	public void render(Historico historico) {
 		System.out.println("<table>");
 		System.out.println("<tr>");
@@ -33,11 +33,11 @@ public class ImpressaoHistoricoHtml implements ImpressaoHistorico {
 		}
 
 		System.out.println("<tr><td>Total geral</td></tr>");
-		System.out.println(
-				"<tr><td>Carga horária obrigatória: " + HistoricoService.calcularCargaHorariaObrigatorias(historico) + "</td></tr>");
-		System.out.println(
-				"<tr><td>Carga horária optativas: " + HistoricoService.calcularCargaHorariaOptativas(historico) + "</td></tr>");
-		System.out.println("<tr><td>CR: " +HistoricoService.calcularCoeficienteRendimento(historico) + "</td></tr>");
+		System.out.println("<tr><td>Carga horária obrigatória: "
+				+ HistoricoService.calcularCargaHorariaObrigatorias(historico) + "</td></tr>");
+		System.out.println("<tr><td>Carga horária optativas: "
+				+ HistoricoService.calcularCargaHorariaOptativas(historico) + "</td></tr>");
+		System.out.println("<tr><td>CR: " + HistoricoService.calcularCoeficienteRendimento(historico) + "</td></tr>");
 		System.out.println("</table>");
 
 	}

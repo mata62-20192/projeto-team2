@@ -12,6 +12,7 @@ import br.ufba.mata62.sistemaacademico.domain.Disciplina;
 import br.ufba.mata62.sistemaacademico.domain.Historico;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistorico;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoHtml;
+import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoTemplate;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoTxt;
 import br.ufba.mata62.sistemaacademico.repository.LeitorDados;
 
@@ -21,7 +22,7 @@ import br.ufba.mata62.sistemaacademico.service.*;
 
 public class Main {
 	
-	public static void imprime(ImpressaoHistorico impressaoHistorico, Historico historico) {
+	public static void imprime(ImpressaoHistoricoTemplate impressaoHistorico, Historico historico) {
 		impressaoHistorico.render(historico);
 		
 	}
