@@ -4,7 +4,6 @@ import br.ufba.mata62.sistemaacademico.service.HistoricoService;
 
 public class ImpressaoHistoricoTxt implements ImpressaoHistorico{	
 	
-	private HistoricoService historicoService;
 	
 	public void render(Historico historico) {
 		 System.out.println("Periodo    Código   Componentes Curriculares               CH    NT   Nota    RES      ");
@@ -28,7 +27,7 @@ public class ImpressaoHistoricoTxt implements ImpressaoHistorico{
 	        System.out.println("Total geral");
 	        System.out.println("Carga horária obrigatória: " + HistoricoService.calcularCargaHorariaObrigatorias(historico));
 	        System.out.println("Carga horária optativas: " + HistoricoService.calcularCargaHorariaOptativas(historico));
-	        System.out.println("CR: " + historicoService.calcularCoeficienteRendimento(Double.parseDouble(historico)));
+	        System.out.println("CR: " + HistoricoService.calcularCoeficienteRendimento(historico));
 	        System.out.println("");
 		
 	}

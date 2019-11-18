@@ -9,6 +9,8 @@ import br.ufba.mata62.sistemaacademico.domain.ComponenteCurricularCursado;
 import br.ufba.mata62.sistemaacademico.domain.Conceito;
 import br.ufba.mata62.sistemaacademico.domain.Curso;
 import br.ufba.mata62.sistemaacademico.domain.Disciplina;
+import br.ufba.mata62.sistemaacademico.domain.Historico;
+import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistorico;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoHtml;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoTxt;
 import br.ufba.mata62.sistemaacademico.repository.LeitorDados;
@@ -19,6 +21,11 @@ import br.ufba.mata62.sistemaacademico.service.*;
 
 public class Main {
 	
+	public static void imprime(ImpressaoHistorico impressaoHistorico, Historico historico) {
+		impressaoHistorico.render(historico);
+		
+	}
+	
 	public static void main(String[] args){
 		
 		Universidade.setNome("Universidade Federal da Bahia");
@@ -26,6 +33,7 @@ public class Main {
 		
 		LeitorDados leitorDados = new LeitorDados("dados.txt");
 		leitorDados.lerDados();
+	
 		
 		ImpressaoHistoricoHtml html = new ImpressaoHistoricoHtml();
 		ImpressaoHistoricoTxt txt = new ImpressaoHistoricoTxt();
@@ -81,8 +89,8 @@ public class Main {
 		for(Aluno aluno : Universidade.getAlunos().values()){
 			System.out.println("Aluno: " + aluno.getNome());
 			System.out.println("Matricula: " + aluno.getMatricula());	
-			html.render(aluno.getHistorico());
-			txt.render(aluno.getHistorico());
+			imprime(html, aluno.getHistorico());
+			imprime(txt, aluno.getHistorico());
 			System.out.println();
 		}
 	}
