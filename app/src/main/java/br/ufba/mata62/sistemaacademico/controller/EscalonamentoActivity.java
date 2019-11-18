@@ -20,11 +20,11 @@ import br.ufba.mata62.sistemaacademico.service.EscalonamentoService;
 
 public class EscalonamentoActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-        private boolean sort = true;
         private ListView listView;
         private AlunoEscalonamentoAdapter alunoEscalonamentoAdapter;
-        private ArrayList<Aluno> alunos;
         private Curso curso;
+        private ArrayList<Aluno> alunos;
+        private boolean sort = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +42,7 @@ public class EscalonamentoActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        int codigoCurso = MainActivity.codigoCurso;
-
-        curso = Universidade.getCursos().get(codigoCurso);
+        curso = MainActivity.curso;
 
         alunos = new ArrayList<>(curso.getAlunos().values());
 

@@ -32,9 +32,7 @@ public class CadastrarAlunoActivity extends AppCompatActivity {
         edtSemestre = (EditText) findViewById(R.id.edtSemestre);
         edtMatricula = (EditText) findViewById(R.id.edtMatricula);
 
-        int codigoCurso = MainActivity.codigoCurso;
-
-        curso = Universidade.getCursos().get(codigoCurso);
+        curso = MainActivity.curso;
 
     }
 
@@ -94,13 +92,8 @@ public class CadastrarAlunoActivity extends AppCompatActivity {
 
         try{
             UniversidadeService.insereAluno(matriculaValida, aluno);
-            PeriodoCursado pc = new PeriodoCursado(semestre);
-            aluno.getHistorico().inserePeriodoCursado(pc);
 
-            for(ComponenteCurricular cc : aluno.getComponentesCurricularesObrigatorios(1)) {
-                ComponenteCurricularCursado ccc = new ComponenteCurricularCursado(cc);
-                aluno.insereComponenteCurricularCursado(1, ccc);
-            }
+            CadastrarAlunoService.matricularDisciplinas(aluno, semestre);
 
             Toast.makeText(this, "Aluno cadastrado.", Toast.LENGTH_SHORT).show();
             finish();

@@ -2,36 +2,26 @@ package br.ufba.mata62.sistemaacademico.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
 import br.ufba.mata62.sistemaacademico.R;
 import br.ufba.mata62.sistemaacademico.domain.Curriculo;
 import br.ufba.mata62.sistemaacademico.domain.Curso;
-import br.ufba.mata62.sistemaacademico.domain.ImpressaoCurriculo;
-import br.ufba.mata62.sistemaacademico.domain.Universidade;
+import br.ufba.mata62.sistemaacademico.service.ImpressaoCurriculoService;
 
 public class CurriculoActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ImpressaoCurriculo impressaoCurriculo;
     private Curso curso;
-    Curriculo curriculo;
+    private Curriculo curriculo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +42,11 @@ public class CurriculoActivity extends AppCompatActivity
         WebView webView = (WebView) findViewById(R.id.webview);
         webView.setWebViewClient(new WebViewClient());
 
+        curso = MainActivity.curso;
 
-        int codigoCurso = MainActivity.codigoCurso;
-        curso = Universidade.getCursos().get(codigoCurso);
         curriculo = curso.getCurriculo();
 
-        webView.loadDataWithBaseURL(null, impressaoCurriculo.imprimir(curriculo).toString(), "text/HTML", "UTF-8", null);
+        webView.loadDataWithBaseURL(null, ImpressaoCurriculoService.imprimir(curriculo).toString(), "text/HTML", "UTF-8", null);
 
     }
 

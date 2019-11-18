@@ -31,8 +31,8 @@ public class ListarAlunosActivity extends AppCompatActivity
     private FloatingActionButton fab;
     private ListView listView;
     private AlunoAdapter alunoAdapter;
-    private ArrayList<Aluno> alunos = null;
     private Curso curso;
+    private ArrayList<Aluno> alunos = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +53,7 @@ public class ListarAlunosActivity extends AppCompatActivity
         fab = (FloatingActionButton) findViewById(R.id.fab);
         listView = (ListView) findViewById(R.id.listView);
 
-        int codigoCurso = MainActivity.codigoCurso;
-
-        curso = Universidade.getCursos().get(codigoCurso);
+        curso = MainActivity.curso;
 
         alunos = new ArrayList<>(curso.getAlunos().values());
 

@@ -14,6 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static br.ufba.mata62.sistemaacademico.controller.MainActivity.curso;
+
 class AlunoAdapter extends ArrayAdapter<Aluno> implements Filterable{
     private List<Aluno> alunos;
     private List<Aluno> alunosFull;
@@ -61,6 +63,8 @@ class AlunoAdapter extends ArrayAdapter<Aluno> implements Filterable{
     private Filter alunoFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
+            alunosFull = new ArrayList<>(curso.getAlunos().values());
+
             List<Aluno> filteredList = new ArrayList<>();
 
             if(constraint == null || constraint.length() == 0){

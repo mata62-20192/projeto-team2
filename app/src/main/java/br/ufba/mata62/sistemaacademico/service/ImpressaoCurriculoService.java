@@ -1,6 +1,10 @@
-package br.ufba.mata62.sistemaacademico.domain;
+package br.ufba.mata62.sistemaacademico.service;
 
-public class ImpressaoCurriculo {
+import br.ufba.mata62.sistemaacademico.domain.ComponenteCurricular;
+import br.ufba.mata62.sistemaacademico.domain.Curriculo;
+import br.ufba.mata62.sistemaacademico.domain.Periodo;
+
+public class ImpressaoCurriculoService {
 
     public static StringBuilder imprimir(Curriculo curriculo){
         StringBuilder sb = new StringBuilder("<body><html>");

@@ -10,6 +10,7 @@ import br.ufba.mata62.sistemaacademico.domain.Conceito;
 import br.ufba.mata62.sistemaacademico.domain.Curso;
 import br.ufba.mata62.sistemaacademico.domain.Disciplina;
 import br.ufba.mata62.sistemaacademico.domain.Historico;
+import br.ufba.mata62.sistemaacademico.service.ImpressaoCurriculoService;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistorico;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoHtml;
 import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoTxt;
@@ -41,7 +42,7 @@ public class Main {
 		System.out.println("Cursos da Universidade:");
 		for(Curso curso : Universidade.getCursos().values()) {
 			System.out.println("Curso: " + curso.getNome());
-			curso.getCurriculo().imprimir();
+            ImpressaoCurriculoService.imprimir(curso.getCurriculo());
 			System.out.println();
 		}
 		
