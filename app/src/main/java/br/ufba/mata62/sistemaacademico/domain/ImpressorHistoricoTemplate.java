@@ -1,12 +1,11 @@
 package br.ufba.mata62.sistemaacademico.domain;
 
-
 public abstract class ImpressorHistoricoTemplate {
 
-	public abstract StringBuilder render(Historico historico);
-
-	public void imprimir(Historico historico) {
-		render(historico);
+	public StringBuilder imprimir(Historico historico) {
+		return new StringBuilder(imprimirHTML(historico).toString() + imprimirTXT(historico).toString());
 	}
 
+	public abstract StringBuilder imprimirTXT(Historico historico);
+	public abstract StringBuilder imprimirHTML(Historico historico);
 }

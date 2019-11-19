@@ -5,7 +5,7 @@ import br.ufba.mata62.sistemaacademico.service.HistoricoService;
 public class ImpressorHistoricoTxt extends ImpressorHistoricoTemplate {
 
 	@Override
-	public StringBuilder render(Historico historico) {
+	public StringBuilder imprimirTXT(Historico historico) {
 		StringBuilder sb = new StringBuilder("Periodo    Código   Componentes Curriculares               CH    NT   Nota    RES      ");
 
 		for (PeriodoCursado periodoCursado : historico.getPeriodosCursados()) {
@@ -32,5 +32,10 @@ public class ImpressorHistoricoTxt extends ImpressorHistoricoTemplate {
 		sb.append("\n");
 
 		return  sb;
+	}
+
+	@Override
+	public StringBuilder imprimirHTML(Historico historico) {
+		return new StringBuilder("");
 	}
 }

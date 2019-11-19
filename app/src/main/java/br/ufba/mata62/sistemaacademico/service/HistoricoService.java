@@ -5,7 +5,7 @@ import br.ufba.mata62.sistemaacademico.domain.*;
 public class HistoricoService {
 
     public static StringBuilder imprimir(ImpressorHistoricoTemplate impressaoHistorico, Historico historico) {
-        return impressaoHistorico.render(historico);
+        return impressaoHistorico.imprimir(historico);
     }
 
     public static int calcularCargaHorariaOptativas(Historico historico) {
