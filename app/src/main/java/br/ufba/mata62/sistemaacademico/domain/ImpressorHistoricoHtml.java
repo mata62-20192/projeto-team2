@@ -6,7 +6,7 @@ import br.ufba.mata62.sistemaacademico.service.HistoricoService;
 public class ImpressorHistoricoHtml extends ImpressorHistoricoTemplate {
 
 	@Override
-	public StringBuilder imprimirHTML(Historico historico) {
+	public StringBuilder formatar(Historico historico) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<table>");
 		sb.append("<tr>");
@@ -40,10 +40,5 @@ public class ImpressorHistoricoHtml extends ImpressorHistoricoTemplate {
 		sb.append("</table>");
 
 		return sb;
-	}
-
-	@Override
-	public StringBuilder imprimirTXT(Historico historico) {
-		return new StringBuilder("");
 	}
 }
