@@ -33,13 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
         curso = Universidade.getCursos().get(codigoCurso);
 
-        Aluno aluno1 = new Aluno("Leonardo de Andrade Santana", 1, "2018.1", "123", curso);
+        Aluno aluno1 = new Aluno("José Vítor Coutinho", 1, "2018.1", "123", curso);
         Aluno aluno2 = new Aluno("Pablo Henrique Rego dos Santos Cabral", 2, "2020.2", "123", curso);
-        Aluno aluno3 = new Aluno("Tales Iago Batista", 3, "2019.1", "123", curso);
-        Aluno aluno4 = new Aluno("Rafael Ribeiro Lopes Embiruçu", 4, "2019.1", "123", curso);
-        Aluno aluno5 = new Aluno("Marcos Lordelo Marques", 5, "2019.2", "123", curso);
-        Aluno aluno6 = new Aluno("Christian Alves Urbano", 6, "2020.1", "123", curso);
-        Aluno aluno7 = new Aluno("Andréa da Silva de Oliveira", 7, "2020.1", "123", curso);
+        Aluno aluno3 = new Aluno("Lisandra Calmon São Bernardo", 3, "2019.1", "123", curso);
+        Aluno aluno4 = new Aluno("Larissa Mattos de Almeida Hora", 4, "2019.1", "123", curso);
+        Aluno aluno5 = new Aluno("Luís Fernando Guerra", 5, "2019.2", "123", curso);
+        Aluno aluno6 = new Aluno("João Pedro Santana", 6, "2020.1", "123", curso);
         
         Universidade.insereAluno(1, aluno1);
         Universidade.insereAluno(2, aluno2);
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         Universidade.insereAluno(4, aluno4);
         Universidade.insereAluno(5, aluno5);
         Universidade.insereAluno(6, aluno6);
-        Universidade.insereAluno(7, aluno7);
 
         for(Aluno aluno : new ArrayList<>(curso.getAlunos().values())){
             PeriodoCursado pc = new PeriodoCursado(aluno.getSemestreInicio());

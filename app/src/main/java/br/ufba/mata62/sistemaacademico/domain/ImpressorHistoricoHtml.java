@@ -1,6 +1,8 @@
 package br.ufba.mata62.sistemaacademico.domain;
 
 
+import java.util.Locale;
+
 import br.ufba.mata62.sistemaacademico.service.HistoricoService;
 
 public class ImpressorHistoricoHtml extends ImpressorHistoricoTemplate {
@@ -36,7 +38,7 @@ public class ImpressorHistoricoHtml extends ImpressorHistoricoTemplate {
 		sb.append("<tr><td>Total geral</td></tr>");
 		sb.append("<tr><td>Carga horária obrigatória: " + HistoricoService.calcularCargaHorariaObrigatorias(historico) + "</td></tr>");
 		sb.append("<tr><td>Carga horária optativas: " + HistoricoService.calcularCargaHorariaOptativas(historico) + "</td></tr>");
-		sb.append("<tr><td>CR: " + HistoricoService.calcularCoeficienteRendimento(historico) + "</td></tr>");
+		sb.append(String.format(Locale.ENGLISH, "<tr><td>CR: %.2f</td></tr>", HistoricoService.calcularCoeficienteRendimento(historico)));
 		sb.append("</table>");
 
 		return sb;
