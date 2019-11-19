@@ -15,7 +15,7 @@ import android.webkit.WebViewClient;
 import br.ufba.mata62.sistemaacademico.R;
 import br.ufba.mata62.sistemaacademico.domain.Curriculo;
 import br.ufba.mata62.sistemaacademico.domain.Curso;
-import br.ufba.mata62.sistemaacademico.service.ImpressaoCurriculoService;
+import br.ufba.mata62.sistemaacademico.service.ImpressorCurriculoService;
 
 public class CurriculoActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -46,7 +46,7 @@ public class CurriculoActivity extends AppCompatActivity
 
         curriculo = curso.getCurriculo();
 
-        webView.loadDataWithBaseURL(null, ImpressaoCurriculoService.imprimir(curriculo).toString(), "text/HTML", "UTF-8", null);
+        webView.loadDataWithBaseURL(null, ImpressorCurriculoService.imprimir(curriculo).toString(), "text/HTML", "UTF-8", null);
 
     }
 

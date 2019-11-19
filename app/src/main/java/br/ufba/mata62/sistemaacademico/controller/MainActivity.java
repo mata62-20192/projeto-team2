@@ -11,6 +11,7 @@ import java.util.Random;
 import br.ufba.mata62.sistemaacademico.R;
 import br.ufba.mata62.sistemaacademico.domain.*;
 import br.ufba.mata62.sistemaacademico.repository.*;
+import br.ufba.mata62.sistemaacademico.service.ComponenteCurricularCursadoService;
 import br.ufba.mata62.sistemaacademico.service.UniversidadeService;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 ComponenteCurricularCursado ccc = new ComponenteCurricularCursado(cc);
 
                 Random random = new Random();
-                ccc.setNota(random.nextInt(101) / 10.0);
+                ComponenteCurricularCursadoService.setNota(ccc, random.nextInt(101) / 10.0);
 
                 aluno.insereComponenteCurricularCursado(1, ccc);
             }

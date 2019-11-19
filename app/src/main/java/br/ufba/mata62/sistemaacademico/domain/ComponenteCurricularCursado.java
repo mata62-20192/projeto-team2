@@ -23,12 +23,8 @@ public class ComponenteCurricularCursado{
 		return nota;
 	}
 
-	public void setNota(Double nota) {		
-		if(conceito != Conceito.DISPENSA ||
-				conceito != Conceito.TRANCAMENTO ||
-				conceito != Conceito.REPROVADO_POR_FALTA) {
-			this.nota = nota;
-		}
+	public void setNota(Double nota) {
+        this.nota = nota;
 	}
 
 	public ComponenteCurricular getComponenteCurricular() {

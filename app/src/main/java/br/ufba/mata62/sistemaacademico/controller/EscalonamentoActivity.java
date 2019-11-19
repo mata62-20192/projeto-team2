@@ -15,7 +15,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import br.ufba.mata62.sistemaacademico.R;
-import br.ufba.mata62.sistemaacademico.domain.*;
+import br.ufba.mata62.sistemaacademico.domain.Aluno;
+import br.ufba.mata62.sistemaacademico.domain.Curso;
+import br.ufba.mata62.sistemaacademico.domain.EscalonamentoCRStrategy;
+import br.ufba.mata62.sistemaacademico.domain.EscalonamentoSemestreStrategy;
 import br.ufba.mata62.sistemaacademico.service.EscalonamentoService;
 
 public class EscalonamentoActivity extends AppCompatActivity

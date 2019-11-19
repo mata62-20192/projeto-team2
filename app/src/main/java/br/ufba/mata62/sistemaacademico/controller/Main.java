@@ -9,23 +9,15 @@ import br.ufba.mata62.sistemaacademico.domain.ComponenteCurricularCursado;
 import br.ufba.mata62.sistemaacademico.domain.Conceito;
 import br.ufba.mata62.sistemaacademico.domain.Curso;
 import br.ufba.mata62.sistemaacademico.domain.Disciplina;
-import br.ufba.mata62.sistemaacademico.domain.Historico;
-import br.ufba.mata62.sistemaacademico.service.ImpressaoCurriculoService;
-import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoHtml;
-import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoTemplate;
-import br.ufba.mata62.sistemaacademico.domain.ImpressaoHistoricoTxt;
+import br.ufba.mata62.sistemaacademico.service.ImpressorCurriculoService;
+import br.ufba.mata62.sistemaacademico.domain.ImpressorHistoricoHtml;
+import br.ufba.mata62.sistemaacademico.domain.ImpressorHistoricoTxt;
 import br.ufba.mata62.sistemaacademico.repository.LeitorDados;
-
 import br.ufba.mata62.sistemaacademico.domain.PeriodoCursado;
 import br.ufba.mata62.sistemaacademico.domain.Universidade;
 import br.ufba.mata62.sistemaacademico.service.*;
 
 public class Main {
-	
-	public static void imprime(ImpressaoHistoricoTemplate impressaoHistorico, Historico historico) {
-		impressaoHistorico.render(historico);
-		
-	}
 	
 	public static void main(String[] args){
 		
@@ -36,13 +28,13 @@ public class Main {
 		leitorDados.lerDados();
 	
 		
-		ImpressaoHistoricoHtml html = new ImpressaoHistoricoHtml();
-		ImpressaoHistoricoTxt txt = new ImpressaoHistoricoTxt();
+		ImpressorHistoricoHtml html = new ImpressorHistoricoHtml();
+		ImpressorHistoricoTxt txt = new ImpressorHistoricoTxt();
 		
 		System.out.println("Cursos da Universidade:");
 		for(Curso curso : Universidade.getCursos().values()) {
 			System.out.println("Curso: " + curso.getNome());
-            ImpressaoCurriculoService.imprimir(curso.getCurriculo());
+            ImpressorCurriculoService.imprimir(curso.getCurriculo());
 			System.out.println();
 		}
 		
@@ -89,9 +81,9 @@ public class Main {
 		System.out.println("Alunos da Universidade:");
 		for(Aluno aluno : Universidade.getAlunos().values()){
 			System.out.println("Aluno: " + aluno.getNome());
-			System.out.println("Matricula: " + aluno.getMatricula());	
-			imprime(html, aluno.getHistorico());
-			imprime(txt, aluno.getHistorico());
+			System.out.println("Matricula: " + aluno.getMatricula());
+			HistoricoService.imprimir(html, aluno.getHistorico());
+			HistoricoService.imprimir(txt, aluno.getHistorico());
 			System.out.println();
 		}
 	}
