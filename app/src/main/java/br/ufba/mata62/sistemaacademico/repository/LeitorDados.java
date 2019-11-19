@@ -21,7 +21,7 @@ public class LeitorDados {
 
 		try {
 
-			BufferedReader lerArq = new BufferedReader(new InputStreamReader(new FileInputStream("app/src/main/assets/"+ this.nomeDoArquivo), "UTF-8"));
+			BufferedReader lerArq = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/assets/"+ this.nomeDoArquivo), "UTF-8"));
 
 			String linha = "";
 
