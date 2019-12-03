@@ -18,6 +18,17 @@ public class ComponenteCurricular {
 	public Natureza getNatureza() {
 		return natureza;
 	}
+	public void setNatureza(Natureza natureza) {
+		this.natureza = natureza;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
+
+	public void setPreRequisitos(Set<Disciplina> preRequisitos) {
+		this.preRequisitos = preRequisitos;
+	}
 
 	public Disciplina getDisciplina() {
 		return disciplina;

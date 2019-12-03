@@ -83,6 +83,10 @@ public class Main {
 			System.out.println("Aluno: " + aluno.getNome());
 			System.out.println("Matricula: " + aluno.getMatricula());
 			HistoricoService.imprimir(html, aluno.getHistorico());
+			System.out.println("OB: " + HistoricoService.calcularCargaHorariaObrigatorias(aluno.getHistorico()));
+			System.out.println("OP: " + HistoricoService.calcularCargaHorariaOptativas(aluno.getHistorico()));
+			System.out.println("CR: " + HistoricoService.calcularCoeficienteRendimento(aluno.getHistorico()));
+			
 			HistoricoService.imprimir(txt, aluno.getHistorico());
 			System.out.println();
 		}
