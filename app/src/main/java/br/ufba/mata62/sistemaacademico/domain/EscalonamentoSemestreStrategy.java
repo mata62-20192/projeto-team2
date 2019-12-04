@@ -38,7 +38,7 @@ public class EscalonamentoSemestreStrategy implements EscalonamentoStrategy {
                             return -1;
                         } else if (coeficiente1 < coeficiente2) {
                             return 1;
-                        } else {
+                        } else { 
                             return 0;
                         }
                     }
